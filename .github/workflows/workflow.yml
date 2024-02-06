@@ -29,4 +29,4 @@ jobs:
         DESTINATION_URL: ${{ secrets.DESTINATION_URL }}
         SOURCE_TOKEN: ${{ secrets.SOURCE_TOKEN }}
         DESTINATION_TOKEN: $ {{ secrets.DESTINATION_TOKEN }}
-      run: python main.py
+      run: python main.py --source-url "${{SOURCE_URL}}" --destination-url "${DESTINATION_URL}" --source-token "{{SOURCE_TOKEN}}" --destination-token "{{DESTINATION_TOKEN}}"
