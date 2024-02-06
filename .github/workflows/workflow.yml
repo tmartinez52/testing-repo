@@ -24,9 +24,4 @@ jobs:
       run: pip install argparse requests
     
     - name: Run Script
-      env: 
-        SOURCE_URL: ${{ secrets.SOURCE_URL }}
-        DESTINATION_URL: ${{ secrets.DESTINATION_URL }}
-        SOURCE_TOKEN: ${{ secrets.SOURCE_TOKEN }}
-        DESTINATION_TOKEN: $ {{ secrets.DESTINATION_TOKEN }}
-      run: python main.py --source-url "${{SOURCE_URL}}" --destination-url "${DESTINATION_URL}" --source-token "{{SOURCE_TOKEN}}" --destination-token "{{DESTINATION_TOKEN}}"
+      run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${secrets. DESTINATION_URL } --source-token {{ secrets.SOURCE_TOKEN}} --destination-token {{ secrets.DESTINATION_TOKEN}}
