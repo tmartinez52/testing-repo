@@ -10,7 +10,8 @@ on:
 
 jobs:
   migrate:
-    environment: dev
+    environment:
+      name: ${{ github.ref == 'refs/heads/dev' && 'dev' || github.ref == 'refs/heads/sandbox' && 'sandbox' || 'main' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
@@ -23,6 +24,9 @@ jobs:
 
     - name: Install dependencies
       run: pip install argparse requests
+
+    - name: Print Environment Name
+      run: echo "Environment Name: ${{ job.environment.name }}"
     
-    - name: Run Script
-      run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${{ secrets.DESTINATION_URL }} --source-token ${{ secrets.SOURCE_TOKEN }} --destination-token ${{ secrets.DESTINATION_TOKEN }}
+    #- name: Run Script
+    #  run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${{ secrets.DESTINATION_URL }} --source-token ${{ secrets.SOURCE_TOKEN }} --destination-token ${{ secrets.DESTINATION_TOKEN }}
