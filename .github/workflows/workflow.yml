@@ -1,1 +1,32 @@
+name: Migrate PR  
 
+on:
+  push:
+    branches:
+      - dev
+      - sandbox
+      - main
+    workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name:  Setup Python
+      uses: actions/setup-python@v2
+      with: 
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install argparse requests
+    
+    - name: Run Script
+      env: 
+        SOURCE_URL: ${{ secrets.SOURCE_URL }}
+        DESTINATION_URL: ${{ secrets.DESTINATION_URL }}
+        SOURCE_TOKEN: ${{ secrets.SOURCE_TOKEN }}
+        DESTINATION_TOKEN: $ {{ secrets.DESTINATION_TOKEN }}
+      run: python main.py
