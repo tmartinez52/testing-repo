@@ -24,4 +24,4 @@ jobs:
       run: pip install argparse requests
     
     - name: Run Script
-      run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${secrets.DESTINATION_URL } --source-token {{ secrets.SOURCE_TOKEN}} --destination-token {{ secrets.DESTINATION_TOKEN}}
+      run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${{ secrets.DESTINATION_URL }} --source-token {{ secrets.SOURCE_TOKEN}} --destination-token {{ secrets.DESTINATION_TOKEN}}
