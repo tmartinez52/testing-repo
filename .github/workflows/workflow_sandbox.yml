@@ -1,14 +1,14 @@
-name: Migrate PR  
+name: Migrate PR Sandbox
 
 on:
   push:
     branches:
-      - main
+      - sandbox
   workflow_dispatch:
 
 jobs:
   migrate:
-    environment: main
+    environment: sandbox
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
