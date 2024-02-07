@@ -10,8 +10,18 @@ on:
 
 jobs:
   migrate:
-    environment:
-      name: ${{ github.ref == 'refs/heads/dev' && 'dev' || github.ref == 'refs/heads/sandbox' && 'sandbox' || 'main' }}
+    strategy:
+      matrix:
+        include:
+          - branch: dev
+            environment: dev
+          - branch: sandbox
+            environment: sandbox
+          - branch: main
+            environment: main
+    if: github.ref == 'refs/heads/${{ matrix.branch }}'
+    environment: 
+      name: ${{ matrix.environment }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -24,6 +34,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install argparse requests
+
+      - name: Print Environment Name
+        run: echo "Environment Name: ${{ matrix.environment }}"
 
       - name: Run Script
         run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${{ secrets.DESTINATION_URL }} --source-token ${{ secrets.SOURCE_TOKEN }} --destination-token ${{ secrets.DESTINATION_TOKEN }}
