@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+      uses: actions/checkout@v3
 
       - name:  Setup Python
         uses: actions/setup-python@v2
@@ -26,4 +26,6 @@ jobs:
         run: pip install argparse requests
 
       - name: Print Environment Name
-        run: echo "Environment Name: ${{ job.environment.name }}"
+        run: echo ${{ job.environment.name }} 
+    #- name: Run Script
+    #  run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${{ secrets.DESTINATION_URL }} --source-token ${{ secrets.SOURCE_TOKEN }} --destination-token ${{ secrets.DESTINATION_TOKEN }}
