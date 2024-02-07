@@ -27,6 +27,3 @@ jobs:
 
       - name: Print Environment Name
         run: echo "Environment Name: ${{ job.environment.name }}"
-    
-    #- name: Run Script
-    #  run: python main.py --source-url ${{ secrets.SOURCE_URL}} --destination-url ${{ secrets.DESTINATION_URL }} --source-token ${{ secrets.SOURCE_TOKEN }} --destination-token ${{ secrets.DESTINATION_TOKEN }}
