@@ -20,15 +20,13 @@ destination_url = args.destination_url if args.destination_url is not None else 
 destination_token = args.destination_token if args.destination_token is not None else os.environ.get('DESTINATION_TOKEN')
 environment = args.environment if args.environment is not None else os.environ.get('ENVIRONMENT')
 
-if args.environment:
-    if args.environment == 'dev':
-        print("Environment: dev")
-    elif args.environment == 'sandbox':
-        print("Environment: sandbox")
-    elif args.environment == 'main':
-        print("Environment: production")
-    else:
-        print("Environment not recognized.")
+
+if environment == 'dev':
+    print("Environment: dev")
+elif environment == 'sandbox':
+    print("Environment: sandbox")
+elif environment == 'main':
+    print("Environment: production")
 else:
     print("No environment specified.")
 
