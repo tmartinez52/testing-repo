@@ -1,14 +1,14 @@
-name: Migrate PR  
+name: Migrate PR Dev
 
 on:
   push:
     branches:
-      - main
+      - dev
   workflow_dispatch:
 
 jobs:
   migrate:
-    environment: main
+    environment: dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
