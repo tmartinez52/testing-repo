@@ -22,11 +22,11 @@ environment = args.environment if args.environment is not None else os.environ.g
 
 
 if environment == 'dev':
-    print("Environment: dev")
+    print("Environment: One")
 elif environment == 'sandbox':
-    print("Environment: sandbox")
+    print("Environment: Two")
 elif environment == 'main':
-    print("Environment: production")
+    print("Environment: Three")
 else:
     print("No environment specified.")
 
