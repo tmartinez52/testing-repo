@@ -26,4 +26,4 @@ jobs:
         run: pip install argparse requests
 
       - name: Run Script
-       run: python main.py 
+        run: python main.py 
