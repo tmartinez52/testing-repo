@@ -4,14 +4,11 @@ on:
   push:
     branches:
       - dev
-      - sandbox
-      - main
   workflow_dispatch:
 
 jobs:
   migrate:
-    environment:
-      name: ${{ github.ref == 'refs/heads/dev' && 'dev' || github.ref == 'refs/heads/sandbox' && 'sandbox' || 'main' }}
+    environment: dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
