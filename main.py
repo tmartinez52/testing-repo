@@ -18,7 +18,7 @@ source_url = args.source_url if args.source_url is not None else os.environ.get(
 source_token = args.source_token if args.source_token is not None else os.environ.get('SOURCE_TOKEN')
 destination_url = args.destination_url if args.destination_url is not None else os.environ.get('DESTINATION_URL')
 destination_token = args.destination_token if args.destination_token is not None else os.environ.get('DESTINATION_TOKEN')
-environment = arg.environment if args.environment is not None else os.environ.get('ENVIRONMENT')
+environment = args.environment if args.environment is not None else os.environ.get('ENVIRONMENT')
 
 if args.environment:
     if args.environment == 'dev':
