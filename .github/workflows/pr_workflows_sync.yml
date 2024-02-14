@@ -1,8 +1,8 @@
-name: Opened PR Request
+name: Sync Changes to PR
 
 on:
   pull_request:
-    types: opened
+    types: synchronize
 
 jobs:
   build:
