@@ -1,0 +1,15 @@
+name: Sync Changes to PR
+
+on:
+  pull_request:
+    types: synchronize
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: See what inside the file
+      run: cat testfile.txt
